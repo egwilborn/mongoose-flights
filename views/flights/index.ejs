@@ -6,7 +6,6 @@
   </head>
   <body>
     <nav>
-      <a href="/">Home</a>
       <a href="/flights/new">Add Flight</a>
     </nav>
     <h2>Flight List</h2>
@@ -17,17 +16,20 @@
           <th>Airport</th>
           <th>Flight No.</th>
           <th>Departs</th>
+          <th>Details</th>
         </tr>
+      </thead>
+      <tbody>
         <% flights.forEach(function(f) {%>
         <tr>
           <td><%= f.airline %></td>
           <td><%= f.airport %></td>
           <td><%= f.flightNo %></td>
           <td type="date"><%= f.departs%></td>
+          <td><a href="/flights/<%=f._id%>">Details</a></td>
         </tr>
         <%});%>
-      </thead>
-      <tbody></tbody>
+      </tbody>
     </table>
   </body>
 </html>

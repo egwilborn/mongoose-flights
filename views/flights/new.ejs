@@ -6,7 +6,6 @@
   </head>
   <body>
     <nav>
-      <a href="/">Home</a>
       <a href="/flights/">Flight List</a>
     </nav>
     <h2>Enter New Flight Information</h2>
@@ -32,7 +31,7 @@
       <label>Flight No. <input type="number" name="flightNo" /> </label><br />
       <label
         >Departure Time
-        <input type="datetime-local" name="departs" />
+        <input value="<%=departsDate%>" type="datetime-local" name="departs" />
       </label>
       <br />
       <button type="submit">Add Flight</button>
