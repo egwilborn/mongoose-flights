@@ -1,71 +1,68 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Flights</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
-  <body>
-    <nav>
-      <a href="/flights"> All Flights</a>
-      <a href="/flights/new">Add Flight</a>
-    </nav>
-    <h2>Flight Details</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Airline</th>
-          <th>Airport</th>
-          <th>Flight No.</th>
-          <th>Departs</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= oneFlight.airline %></td>
-          <td><%= oneFlight.airport %></td>
-          <td><%= oneFlight.flightNo %></td>
-          <td type="date"><%= oneFlight.departs%></td>
-        </tr>
-      </tbody>
-    </table>
-    <br /><br />
+<%- include('../partials/header') %>
+<nav>
+  <a href="/flights"> All Flights</a>
+  <a href="/flights/new">Add Flight</a>
+</nav>
+<h2>Flight Details</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Airline</th>
+      <th>Airport</th>
+      <th>Flight No.</th>
+      <th>Departs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= oneFlight.airline %></td>
+      <td><%= oneFlight.airport %></td>
+      <td><%= oneFlight.flightNo %></td>
+      <td type="date"><%= oneFlight.departs%></td>
+    </tr>
+  </tbody>
+</table>
+<br /><br />
 
-    <h3>Flight Destinations</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Airport</th>
-          <th>Arrival Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%oneFlight.destinations.forEach(function(d) {%>
-        <tr>
-          <td><%= d.airport %></td>
-          <td type="date"><%= d.arrival %></td>
-        </tr>
-        <%});%>
-      </tbody>
-    </table>
-    <br /><br />
+<h3>Flight Destinations</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Airport</th>
+      <th>Arrival Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%oneFlight.destinations.forEach(function(d) {%>
+    <tr>
+      <td><%= d.airport %></td>
+      <td type="date"><%= d.arrival %></td>
+    </tr>
+    <%});%>
+  </tbody>
+</table>
+<br /><br />
 
-    <h3>Add a Destination</h3>
-    <form method="POST" action="/flights/<%= oneFlight._id %>/destinations">
-      <label
-        >Airport
-        <select name="airport">
-          <option value="AUS">AUS</option>
-          <option value="DFW">DFW</option>
-          <option value="DEN">DEN</option>
-          <option value="LAX">LAX</option>
-          <option value="SAN">SAN</option>
-        </select>
-      </label>
-      <label
-        >Arrival Time
-        <input type="datetime-local" name="arrival" />
-      </label>
-      <button type="submit">Add Destination</button>
-    </form>
-  </body>
-</html>
+<h3>Add a Destination</h3>
+<form
+  id="destinations-form"
+  method="POST"
+  action="/flights/<%= oneFlight._id %>/destinations"
+>
+  <label id="destinations-label"
+    >Airport
+    <select name="airport">
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="DEN">DEN</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+    </select>
+  </label>
+  <label id="destinations-input"
+    >Arrival Time
+    <input type="datetime-local" name="arrival" />
+  </label>
+  <button type="submit">Add Destination</button>
+</form>
+<%- include('../partials/footer') %>

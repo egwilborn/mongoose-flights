@@ -9,3 +9,36 @@ body {
 a {
   color: #00b7ff;
 }
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+  border: 1px solid darkgrey;
+  padding: 10px;
+}
+
+td {
+  text-align: center;
+  border: 1px solid darkgrey;
+  padding: 10px;
+}
+#destinations-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: 30px;
+}
+#new-flight-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+span {
+  padding-left: 15px;
+}
+label {
+  font-weight: bolder;
+}
