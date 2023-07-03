@@ -39,12 +39,12 @@
         </tr>
       </thead>
       <tbody>
+        <%oneFlight.destinations.forEach(function(d) {%>
         <tr>
-          <%oneFlight.destinations.forEach(function(d) {%>
           <td><%= d.airport %></td>
           <td type="date"><%= d.arrival %></td>
-          <%});%>
         </tr>
+        <%});%>
       </tbody>
     </table>
     <br /><br />

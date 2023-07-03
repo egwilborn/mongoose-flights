@@ -5,11 +5,18 @@ module.exports = {
 };
 async function create(req, res) {
   try {
-    console.log(req.body);
     const oneFlight = await Flight.findById(req.params.id);
     oneFlight.destinations.push(req.body);
+    oneFlight.destinations.sort(function (a, b) {
+      if (a.arrival < b.arrival) {
+        return -1;
+      } else if (a.arrival > b.arrival) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
     await oneFlight.save();
-    console.log(oneFlight);
     //redirec to the same flight's show page
     res.redirect(`/flights/${req.params.id}`);
   } catch (err) {
