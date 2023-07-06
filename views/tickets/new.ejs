@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+<nav>
+  <a href="/flights/">All Flights</a>
+</nav>
+<h2>Enter New Ticket Information</h2>
+<form
+  id="new-ticket-form"
+  action="/flights/<%=flight._id%>/tickets"
+  method="POST"
+  autocomplete="off"
+>
+  <label id="seat"
+    >Seat
+    <input
+      name="seat"
+      placeholder="ex: A44"
+      required
+      pattern="[A-F][1-9]\d?" /></label
+  ><br />
+  <label id="price"
+    >Price (in USD) <input name="price" placeholder="ex: 300"
+  /></label>
+  <br />
+  <button type="submit">Create New Ticket</button>
+</form>
+
+<%- include('../partials/footer') %>

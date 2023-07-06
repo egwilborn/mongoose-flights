@@ -65,4 +65,27 @@
   </label>
   <button type="submit">Add Destination</button>
 </form>
+
+<h3>Flight Tickets</h3>
+<a href="/flights/<%=oneFlight.id%>/tickets/new">Create a Ticket</a>
+<br /><br />
+<h3>Tickets</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Seat</th>
+      <th>Price ($)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%ticketsForFlight.forEach(function(t) {%>
+    <tr>
+      <td><%= t.seat %></td>
+      <td>$<%= t.price %></td>
+    </tr>
+    <%});%>
+  </tbody>
+</table>
+<br /><br />
+
 <%- include('../partials/footer') %>

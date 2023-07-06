@@ -36,7 +36,5 @@ const flightSchema = new Schema(
     timestamps: true,
   }
 );
-//note: default value doesn't seem to work??
-// default: function () {
-//   return new Date(new Date().setFullYear(new Date().getFullYear() + 1));
+
 module.exports = mongoose.model("Flight", flightSchema);
